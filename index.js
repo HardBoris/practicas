@@ -27,6 +27,8 @@ const alfa = (nota) => {
     return "Nota Inválida"
 }
 
+// console.log(alfa(62))
+
 /* Sistema de gastos familiar
 Crie um projeto que possuirá 2 propriedades, ambas do tipo array:
     * receitas: []
@@ -58,6 +60,8 @@ const total = (objeto) => {
     }
 }
 
+// console.log(total(family))
+
 /* 
 Celsius ou farenheit
 
@@ -71,14 +75,20 @@ Celsius ou farenheit
 */
 
 const conversor = (degree) => {
-    let unit = degree.length
-    let value = degree.toLower().replace
-    if (degree.toLower().includes("f")) {
-        return ((value - 32) * 5/9) + "C"
+    let unit = degree.slice(-1).toLowerCase()
+    let value = Number(degree.toLowerCase().replace(unit, ""))
+    if (unit !== "f" && unit !== "c") {
+        return "Unidade " + unit + " inválida"
     }
-    if (unit.toLower() === "c") {
-        return (value * 9/5 + 32) + "Farenheit"
+    if (unit === "f") {
+        return ((value - 32) * 5/9).toFixed(2) + "C"
+    }
+    if (unit === "c") {
+        return (value * 9/5 + 32).toFixed(2) + "F"
     }
 }
 
 
+/* console.log(conversor("25f"))
+console.log(conversor("32C"))
+console.log(conversor("45Y")) */
